@@ -1,5 +1,4 @@
 let currentPlayer = 'Red';
-let gameOver = false;
 let output_message = document.getElementById('output_message');
 let displayNextPlayer = document.getElementById("turn");
 displayNextPlayer.textContent = `${currentPlayer}'s turn!`;
@@ -103,7 +102,6 @@ function checkTieGame() {
 }
 
 function handleGameOver() {
-    gameOver = true;
     displayNextPlayer.textContent = '';
     gameBoard.style.pointerEvents = "none";
 }
