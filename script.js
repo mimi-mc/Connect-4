@@ -7,18 +7,22 @@ const noRows = 6, noColumns = 7;
 let currentActiveLine = [5, 5, 5, 5, 5, 5, 5];
 let slots = document.querySelectorAll(".cell");
 
-for (let row = 0; row < noRows; ++row) {
-    let line = [];
-    for (let col = 0; col < noColumns; ++col) {
-        line.push('');
-        let cell = document.createElement('div');
-        cell.id = row.toString() + '-' + col.toString();
-        cell.classList.add('cell');
-        cell.addEventListener('click', handleClick);
-        document.getElementById('gameBoard').append(cell);
+function generateBoard() {
+    for (let row = 0; row < noRows; ++row) {
+        let line = [];
+        for (let col = 0; col < noColumns; ++col) {
+            line.push('');
+            let cell = document.createElement('div');
+            cell.id = row.toString() + '-' + col.toString();
+            cell.classList.add('cell');
+            cell.addEventListener('click', handleClick);
+            document.getElementById('gameBoard').append(cell);
+        }
+        board.push(line);
     }
-    board.push(line);
 }
+
+generateBoard();
 
 function handleClick() {
     let row = this.id.split("-")[0];
